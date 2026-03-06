@@ -1,8 +1,7 @@
-import { ApplicationConfig, importProvidersFrom, provideBrowserGlobalErrorListeners, provideZoneChangeDetection } from '@angular/core';
+import { ApplicationConfig, provideBrowserGlobalErrorListeners, provideZoneChangeDetection } from '@angular/core';
 import { provideRouter } from '@angular/router';
 import { routes } from './app.routes';
 import { provideHttpClient, withInterceptors } from '@angular/common/http';
-import { authInterceptor } from '../interceptors/auth-interceptor';
 import { FakeBackendInterceptor } from '../fake-backend.interceptor';
 
 export const appConfig: ApplicationConfig = {
@@ -11,7 +10,7 @@ export const appConfig: ApplicationConfig = {
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
     provideHttpClient(
-      withInterceptors([FakeBackendInterceptor, authInterceptor])
+      withInterceptors([FakeBackendInterceptor])
     ),
  
   ]

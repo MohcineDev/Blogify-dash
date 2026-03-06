@@ -3,9 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { environment } from '../../../environments/environment'
 import { Router, RouterLink } from '@angular/router';
-// import { toast } from '../../Components/toast/toast'
 import { confirmAction } from '../../Components/confirm-action/confirm-action'
-import { MatDialog } from '@angular/material/dialog';
 import { ToastService } from '../../services/ToastService';
 import { ReportedUser } from '../../models/ReportedUser';
 
@@ -27,7 +25,7 @@ interface adminAction {
 export class Dashboard implements OnInit {
 
   constructor(private http: HttpClient, private toast: ToastService, 
-    private router: Router, private dialog: MatDialog) { }
+    private router: Router) { }
 
   baseUrl = environment.apiUrl
   users: any[] = []
